@@ -1,0 +1,30 @@
+{
+  "name": "toca",
+  "version": "1.0.0",
+  "packageManager": "npm@10.9.8",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-deola/Toca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-deola/Toca/issues"
+  },
+  "homepage": "https://github.com/a-deola/Toca#readme",
+  "devDependencies": {
+    "turbo": "^2.11.10"
+  }
+}
