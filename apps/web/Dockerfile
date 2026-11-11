@@ -1,11 +1,18 @@
-FROM node:26-bookworm-slim
+FROM node:26-bookworm-slim AS base
 
 WORKDIR /app
-
-# Docker builds use the repository root as context.
-COPY . .
+COPY package.json package-lock.json ./
+COPY apps/web/package.json ./apps/web/package.json
 RUN npm ci
 
-EXPOSE 3000
+FROM base AS builder
+COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build --workspace=client
 
-CMD ["npm", "run", "dev", "--workspace=client", "--", "--hostname", "0.0.0.0"]
+FROM node:26-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1
+COPY --from=builder /app /app
+EXPOSE 3000
+CMD ["npm", "run", "start", "--workspace=client", "--", "--hostname", "0.0.0.0"]
