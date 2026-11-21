@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import "./app/env";
+import {createMDX} from 'fumadocs-mdx/next'
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
@@ -13,5 +14,6 @@ const nextConfig: NextConfig = {
     },
   },
 };
+const withMDX = createMDX();
 
-export default nextConfig;
+export default withMDX(nextConfig);
