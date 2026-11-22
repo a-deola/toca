@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.13.11",
+    "@types/mdx": "^2.0.14",
+    "fumadocs-core": "^16.19.3",
+    "fumadocs-mdx": "^15.6.2",
+    "fumadocs-ui": "npm:@fumadocs/base-ui@^16.19.3",
     "next": "^16.4.5",
     "react": "19.3.0",
     "react-dom": "19.3.0",
