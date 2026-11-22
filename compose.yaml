@@ -34,9 +34,7 @@ services:
   postgres:
     image: postgres:18-alpine
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-toca}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-toca_dev_password}
-      POSTGRES_DB: ${POSTGRES_DB:-toca}
+        DATABASE_URL: ${DATABASE_URL}
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
