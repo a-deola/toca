@@ -1,18 +1,34 @@
-# Dependencies
-/node_modules
+# prod
+dist/
+dist-server/
 
-# Compiled output
-/dist
+# dev
+.yarn/
+!.yarn/releases
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf
 
-# Test coverage
-/coverage
+# deps
+node_modules/
+.wrangler
 
-# TypeScript build cache
-*.tsbuildinfo
+# env
+.env
+.env.production
+.dev.vars
 
-# Local environment files
-.env*
-!.env.example
-
-# Logs
+# logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# misc
+.DS_Store

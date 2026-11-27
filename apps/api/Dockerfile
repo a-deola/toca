@@ -22,4 +22,4 @@ RUN npm ci --omit=dev && npm cache clean --force
 COPY --from=build /app/apps/api/dist ./apps/api/dist
 EXPOSE 4000
 USER node
-CMD ["node", "apps/api/dist/index.js"]
+CMD ["npm", "run", "dev", "--workspace=api", "--", "--host", "0.0.0.0", "--port", "4000"]
