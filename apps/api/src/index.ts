@@ -1,14 +1,10 @@
-import express from "express";
+import { Hono } from 'hono'
 
-const app = express();
-const port = Number(process.env.PORT ?? 4000);
+const app = new Hono()
 
-app.use(express.json());
 
-app.get("/health", (_req, res) => {
-  res.json({ status: "ok" });
-});
+app.get('/health', (c) => {
+  return c.json({ status: 'ok' })
+})
 
-app.listen(port, "0.0.0.0", () => {
-  console.log(`API listening on port ${port}`);
-});
+export default app
